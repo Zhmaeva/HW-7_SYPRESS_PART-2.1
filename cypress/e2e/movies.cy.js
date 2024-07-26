@@ -1,4 +1,5 @@
 import tests from "../fixtures/movies.json";
+import selectors from "../fixtures/selectors";
 
 describe('Тесты для проверки главной страницы сайта "ИДЁМВКИНО"', () => {
   beforeEach(() => {
@@ -6,18 +7,18 @@ describe('Тесты для проверки главной страницы с�
   });
 
   it('Отображение недели из 7 дней', () => {
-    cy.get('.page-nav__day').should("have.length", 7);
+    cy.get(selectors.week).should("have.length", 7);
   });
 
   // Тесты выбора мест в кинозале с использованием фикстур
   tests.forEach((test) => {
     it(test.name, () => {
-      cy.get('.page-nav__day:nth-of-type(4)').click();
-      cy.get('.movie').contains('18:00').click();
+      cy.get(selectors.pickDay).click();
+      cy.get(selectors.movie).contains('18:00').click();
       test.data.forEach((seat) => {
-        cy.get(`.buying-scheme__wrapper > :nth-child(${seat.row}) > :nth-child(${seat.seat})`).click();
+        cy.get(selectors.selectSeed).click();
       });
-      cy.get('.acceptin-button').click();
+      cy.get(selectors.btnAccept).click();
       cy.contains('Вы выбрали билеты:').should('be.visible');
     });
   });
