@@ -1,11 +1,7 @@
-[
-  {
-    "name": "Тест авторизации: валидный логин и пароль",
-    "data": [
-      {
-        "login": "qamid@qamid.ru",
-        "password": "qamid"
-      }
-    ]
+{
+  "name": "Тест авторизации: валидный логин и пароль",
+  "data": {
+    "login": "qamid@qamid.ru",
+    "password": "qamid"
   }
-]
+}

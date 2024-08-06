@@ -16,7 +16,7 @@ describe('Тесты для проверки главной страницы с�
       cy.get(selectors.pickDay).click();
       cy.get(selectors.movie).contains('18:00').click();
       test.data.forEach((seat) => {
-        cy.get(selectors.selectSeed).click();
+        cy.get(`.buying-scheme__wrapper > :nth-child(${seat.row}) > :nth-child(${seat.seat})`).click();
       });
       cy.get(selectors.btnAccept).click();
       cy.contains('Вы выбрали билеты:').should('be.visible');
